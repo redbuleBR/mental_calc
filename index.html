@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Mental PRO</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="settings-screen" class="screen active">
+        <div class="settings-container">
+            <h1>Calculadora Mental PRO</h1>
+            
+            <div class="setting-group">
+                <label for="difficulty">Nível de Dificuldade:</label>
+                <select id="difficulty">
+                    <option value="1">1 Dígito (Fácil)</option>
+                    <option value="2" selected>2 Dígitos (Médio)</option>
+                    <option value="3">3 Dígitos (Difícil)</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <label for="num-questions">Número de Contas:</label>
+                <select id="num-questions">
+                    <option value="10">10 Contas</option>
+                    <option value="20" selected>20 Contas</option>
+                    <option value="30">30 Contas</option>
+                    <option value="Infinity">Infinito</option>
+                </select>
+            </div>
+            
+            <div class="setting-group">
+                <label>Operações:</label>
+                <div class="operations">
+                    <input type="checkbox" id="op-add" value="+" checked><label for="op-add">+</label>
+                    <input type="checkbox" id="op-subtract" value="-" checked><label for="op-subtract">-</label>
+                    <input type="checkbox" id="op-multiply" value="*" checked><label for="op-multiply">×</label>
+                    <input type="checkbox" id="op-divide" value="/" checked><label for="op-divide">÷</label>
+                </div>
+            </div>
+
+            <button id="start-btn">Iniciar Jogo</button>
+
+            <div id="leaderboard-display">
+                <h2>🏆 Top 10 🏆</h2>
+                <div id="leaderboard-content">
+                    <p>Escolha as configurações para ver os recordes.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <div class="score">Pontos: <span id="score">0</span></div>
+            <div class="question-counter">Questão: <span id="current-q">1</span> / <span id="total-q">20</span></div>
+        </div>
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div class="problem-container">
+            <div id="problem">12 + 34</div>
+        </div>
+        <input type="number" id="answer-input" placeholder="Sua resposta..." autocomplete="off">
+        <div id="feedback" class=""></div>
+    </div>
+
+    <div id="results-screen" class="screen">
+        <canvas id="confetti-canvas"></canvas>
+        <div class="results-content">
+            <h2>Fim de Jogo!</h2>
+            <p>Sua Pontuação Final:</p>
+            <div id="final-score" class="bouncing">0</div>
+             <button id="play-again-btn">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <div id="leaderboard-modal" class="modal-container">
+        <div class="modal-content">
+            <h2>Novo Recorde!</h2>
+            <p>Você entrou no Top 10! Digite seu nome:</p>
+            <input type="text" id="player-name" placeholder="3 a 10 caracteres" maxlength="10" minlength="3">
+            <button id="save-score-btn">Salvar</button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
